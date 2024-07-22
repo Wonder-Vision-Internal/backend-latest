@@ -48,6 +48,8 @@ router.get('/package-youtube-url/tour-guidance/:slug', FrontController.getpackag
 
 router.get('/package-youtube-url/our-happy-client/:slug', FrontController.getpackageOurHappyClientYoutubeUrl);
 
+router.get('/get-home-client-youtube-url/:slug', FrontController.getHomeClientYoutubeUrl);
+
 
 
 

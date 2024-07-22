@@ -22,6 +22,8 @@ const testimonialModel = require("../Models/testimonial.schema");
 const bestThingsModel = require("../Models/bestThings.schema");
 const bestPlacesModel = require("../Models/bestPlaces.schema");
 const packageYoutubeSchema = require("../Models/packageYoutube.schema");
+const homeClientSchema = require("../Models/homeClient.schema");
+
 
 
 
@@ -730,6 +732,18 @@ const getpackageTourGuidanceYoutubeUrl = async (req, res) => {
 
 }
 
+const getHomeClientYoutubeUrl = async (req, res) => {
+
+    try {
+        const data = await homeClientSchema.find({ slug: req.params.slug}).lean();
+        res.status(200).json({ data })
+    }catch(err) {
+        res.status(500).json({})
+    }
+
+}
+
+
 
 const getpackageOurHappyClientYoutubeUrl = async (req, res) => {
 
@@ -771,5 +785,6 @@ module.exports = {
     bestThingsToDo,
     bestPlaces,
     getpackageTourGuidanceYoutubeUrl,
-    getpackageOurHappyClientYoutubeUrl
+    getpackageOurHappyClientYoutubeUrl,
+    getHomeClientYoutubeUrl
 };

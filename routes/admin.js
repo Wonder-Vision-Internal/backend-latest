@@ -47,6 +47,8 @@ const frontController = require('../controllers/FrontController');
 const bestThingsController = require('../controllers/BestThingsToDo');
 const bestPlacesController = require('../controllers/BestPlaces');
 const packageYoutubeUrlController = require('../controllers/PackageYoutubeUrlController.js');
+const homeClientController = require('../controllers/HomeClient.js');
+
 
 //Routes
 
@@ -243,6 +245,17 @@ router.post('/addblog',upload.single('f_img'),blogController.addBlog)
 router.get('/loadsingleblog/:blogId',blogController.loadSingleBlog)
 router.post('/updateblog',upload.single('f_img'),blogController.updateBlog)
 router.get('/deleteblog/:blogId',blogController.deleteBlog)
+
+router.post('/add-home-client-youtube-url', homeClientController.addHomeClientYoutubeUrl)
+
+router.get('/get-home-client-youtube-url', homeClientController.getHomeClientYoutubeUrl)
+
+router.post('/update-home-client-youtube-url/:id', homeClientController.updateHomeClientYoutubeUrl)
+
+router.delete('/delete-home-client-youtube-url/:id', homeClientController.deleteHomeClientYoutubeUrl)
+
+
+
 const formdataParser = multer().fields([]);
 router.use(formdataParser)
 // router.use(middleware)
